@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import { MyComponent, ThemeContext } from "./ThemeProvider";
+import { Button } from "./Button";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MyComponent>
+      <div>
+        <div>
+          <ThemeContext.Consumer>
+            {({ changeColor }) => <button onClick={changeColor}>Orange</button>}
+          </ThemeContext.Consumer>
+
+          <p>
+            Hello world!!!
+            <div>
+              Do you want to click?
+              <div>
+                <Button />
+              </div>
+            </div>
+          </p>
+        </div>
+      </div>
+    </MyComponent>
   );
 }
 
